@@ -12,7 +12,7 @@
  */
 const BASE_URI = 'https://pairs.lv';
 const SEARCH_URI = BASE_URI + '/2.0/search/layout';
-const VISIT_URI = BASE_URI + '/1.0/visitor'
+const VISIT_URI = BASE_URI + '/1.0/visitor';
 const GIT_VERSION = 'git-xxxxxxxx-v20190101123456';
 const LIMIT = 3;
 const DEVICE = 'pc';
@@ -63,7 +63,7 @@ let visitUser = (token, user) => {
     xhr.open('POST', url, true);
     xhr.setRequestHeader('pairs-token', token);
     xhr.onload = e => {
-        console.log('visit:' + user.partner.nickname)
+        console.log('visit:' + user.partner.nickname);
         cnt++;
     }
     xhr.onerror = e => {
@@ -78,10 +78,10 @@ let search = (token, offset, randSeed) => {
     xhr.open('GET', createSearchUrl(offset, LIMIT, randSeed), true);
     xhr.setRequestHeader('pairs-token', token);
     xhr.onload = e => {
-        data = JSON.parse(xhr.responseText)
+        data = JSON.parse(xhr.responseText);
         users = extractUserData(data);
         if (!users || users.length == 0) {
-            alert('Operation Finished. Number of visited users: ' + cnt)
+            alert('Operation Finished. Number of visited users: ' + cnt);
             return;
         }
         for (let user of users) {
