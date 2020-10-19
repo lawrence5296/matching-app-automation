@@ -80,7 +80,6 @@ let search = (token, offset, randSeed) => {
     let xhr = new XMLHttpRequest();
     xhr.open('GET', createSearchUrl(offset, LIMIT, randSeed), true);
     xhr.setRequestHeader('pairs-token', token);
-    // xhr.setRequestHeader('accept', 'application/json, text/plain, */*');
     xhr.onload = e => {
         data = JSON.parse(xhr.responseText)
         users = extractUserData(data);
