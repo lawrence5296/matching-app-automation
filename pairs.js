@@ -10,11 +10,12 @@
  *  - To confirm that the operation is idling, select `Network` tab.
  *  - It is not recommended to minimize browser (Especially Google Chrome because of behavior of javascript).
  */
-const BASE_URI = 'https://pairs.lv'
+const BASE_URI = 'https://pairs.lv';
 const SEARCH_URI = BASE_URI + '/2.0/search/layout';
 const VISIT_URI = BASE_URI + '/1.0/visitor'
 const GIT_VERSION = 'git-xxxxxxxx-v20190101123456';
 const LIMIT = 3;
+const DEVICE = 'pc';
 
 let extractToken = () => {
     let cookies = document.cookie;
@@ -34,15 +35,11 @@ let createSearchUrl = (offset, limit, randSeed) => {
     return SEARCH_URI
         + '?offset=' + offset
         + '&limit=' + limit
-        + '&device=' + 'pc'
+        + '&device=' + DEVICE
         + '&version=' + GIT_VERSION
         + '&rand_seed=' + randSeed
         + '&sort_id=' + '0'
         + '&is_mock=' + '0';
-}
-
-let createVisitUrl = (userId) => {
-    return VISIT_URI + '/' + userId;
 }
 
 let extractUserData = (resp) => {
@@ -72,7 +69,7 @@ let visitUser = (token, user) => {
     xhr.onerror = e => {
         console.error(JSON.parse(xhr.responseText));
     }
-    xhr.send(JSON.stringify({ device: 'pc', version: GIT_VERSION }));
+    xhr.send(JSON.stringify({ device: DEVICE, version: GIT_VERSION }));
     return;
 }
 
