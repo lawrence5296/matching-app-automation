@@ -52,7 +52,6 @@ $(() => {
         $.ajax(request).then(data => {
             result = JSON.parse(data);
             if (result && 'error' in result && 'code' in result.error && result.error.code == 3) {
-                sleep(5000);
                 alert('Operation Finished. Number of visited users: ' + cnt);
                 return;
             }
