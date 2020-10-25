@@ -1,10 +1,10 @@
 /**
  * Quick Start
  * 1. Open `pairs` page and login with your credential.
- * 2. Open search page and set your favorite settings.
- * 3. Open `Developer tools` (enter F12) in your browser.
+ * 2. Open search page (list page) and set your favorite settings.
+ * 3. Open `Developer Tools` (enter F12) in your browser.
  * 4. Select `Console` tab, then copy and paste following script, 
- * 5. When your press enter, then the script start.
+ * 5. When you press enter, then the script starts.
  * 
  * Tips
  *  - To confirm that the operation is idling, select `Network` tab.
@@ -80,7 +80,7 @@ let search = (token, offset, randSeed) => {
     xhr.onload = e => {
         data = JSON.parse(xhr.responseText);
         users = extractUserData(data);
-        if (!users || users.length == 0) {
+        if (!users || users.length === 0) {
             alert('Operation Finished. Number of visited users: ' + cnt);
             return;
         }
